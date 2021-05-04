@@ -21,6 +21,7 @@ public class HowFrame extends JFrame{
         returnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Utility.button_actionLThread();
                 MainFrame MF = new MainFrame();
                 MF.setVisible(true);
                 dispose();

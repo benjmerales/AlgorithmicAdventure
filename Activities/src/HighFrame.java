@@ -16,7 +16,7 @@ public class HighFrame extends JFrame{
     private JTextArea scoresArea;
 
     public HighFrame(){
-        String filename = "scores.txt";
+        String filename = "src/scores.txt";
         Utility.__init__(this, mainPanel);
 
         scoresArea.setBounds(527, 125, 300, 550);
@@ -44,6 +44,7 @@ public class HighFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                Utility.button_actionLThread();
                 MainFrame MF = new MainFrame();
                 MF.setVisible(true);
             }

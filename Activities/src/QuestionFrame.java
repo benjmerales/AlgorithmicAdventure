@@ -40,8 +40,10 @@ public class QuestionFrame extends JFrame implements ConstantFrames{
         JButton[] buttons = {choiceA, choiceB, choiceC, choiceD};
         for(JButton button: buttons) {
             button.addActionListener(e -> {
+                Utility.button_actionLThread();
                 if(     (correct == 'A' && button == choiceA) || (correct == 'B' && button == choiceB) ||
                         (correct == 'C' && button == choiceC) || (correct == 'D' && button == choiceD) ) {
+                    PlaySound.play(PlaySound.win_sfc, false);
                     JOptionPane.showMessageDialog(null, "Correct!");
                     updateScore(true);
                     this.setVisible(false);
@@ -50,6 +52,7 @@ public class QuestionFrame extends JFrame implements ConstantFrames{
                     if(!M_inter.won)  LF_inter.setVisible(true);
                 }
                 else{
+                    PlaySound.play(PlaySound.wro_sfc, false);
                     JOptionPane.showMessageDialog(null, "Wrong");
                     updateScore(false);
                     this.setVisible(false);
@@ -61,6 +64,7 @@ public class QuestionFrame extends JFrame implements ConstantFrames{
 
         // Powerups
         a5050Button.addActionListener(e -> {
+            Utility.button_actionLThread();
             JButton[] choices = {choiceA, choiceB, choiceC, choiceD};
             for(JButton b: choices){
                 b.setEnabled(false);
@@ -87,6 +91,7 @@ public class QuestionFrame extends JFrame implements ConstantFrames{
             S_inter.multiplier = .5;
         });
         skipButton.addActionListener(e -> {
+            Utility.button_actionLThread();
             JOptionPane.showMessageDialog(null, "Skipped! Points deducted greatly");
             updateScore(true);
             this.setVisible(false);
@@ -97,6 +102,7 @@ public class QuestionFrame extends JFrame implements ConstantFrames{
             S_inter.multiplier = 0.25; // Changed
         });
         askButton.addActionListener(e -> {
+            Utility.button_actionLThread();
             int x = profsBox.getSelectedIndex();
             if((x == 0 && topicText.getText().contains("Graph")) || (x==1 && topicText.getText().contains("Design")) ||
                (x == 2 && topicText.getText().contains("Meta")) || (x==3 && topicText.getText().contains("Intract")) ||
@@ -125,16 +131,19 @@ public class QuestionFrame extends JFrame implements ConstantFrames{
 
         // Hot bar
         exitGameButton.addActionListener(e -> {
+            Utility.button_actionLThread();
             int result = JOptionPane.showConfirmDialog(null, "Are you sure?");
             if(result == JOptionPane.YES_OPTION) System.exit(0);
         });
         returnToMainMenuButton.addActionListener(e -> {
+            Utility.button_actionLThread();
             new MainFrame().setVisible(true);
             this.dispose();
         });
         fullscreenONButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Utility.button_actionLThread();
                 if(fullscreenONButton.getText().contains("ON")){
                     fullscreenONButton.setText("Fullscreen OFF");
                     dispose();

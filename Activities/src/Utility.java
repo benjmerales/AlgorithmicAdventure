@@ -65,5 +65,7 @@ public class Utility implements ConstantFrames{
     public static void resetDWAA(){
         didWeAskAlready = new boolean[7];
     }
-
+    public static void button_actionLThread(){
+        PlaySound.play(PlaySound.click2, false);
+    }
 }
