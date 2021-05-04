@@ -6,9 +6,10 @@ public class SplashFrame extends JFrame{
 
     public SplashFrame(){
         Utility.__init__(this, mainPanel);
+        PlaySound.play(PlaySound.bgm_main, true);
         title.setFocusable(false); title.setBorderPainted(false); title.setForeground(ThemeValues.FG2);
         title.addActionListener(e -> {
-            PlaySound.click_(PlaySound.click1);
+            Utility.button_actionLThread();
             mainPanel.setVisible(false);
             MainFrame MM = new MainFrame();
            MM.setVisible(true);

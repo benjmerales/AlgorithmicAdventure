@@ -25,6 +25,7 @@ public class CategoryFrame extends MainFrame implements ConstantFrames{
         JButton[] categs = new JButton[]{CategA, CategB, CategC, CategD};
         for(JButton categ: categs) {
             categ.addActionListener(e -> {
+                Utility.button_actionLThread();
                 QuestionObject Q = null;
                 selectedButton = categ;
                 if(categ == CategA){

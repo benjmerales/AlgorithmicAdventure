@@ -11,6 +11,7 @@ public class LevelFrame extends JFrame implements  ConstantFrames{
         mainPanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                Utility.button_actionLThread();
                 super.mouseClicked(e);
                 CF_inter.setVisible(true);
                 dispose();
